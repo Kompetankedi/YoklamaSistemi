@@ -38,7 +38,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(270, 162);
+            this.btnLogin.Location = new System.Drawing.Point(217, 96);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(113, 38);
             this.btnLogin.TabIndex = 0;
@@ -48,41 +48,41 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(182, 36);
+            this.txtUser.Location = new System.Drawing.Point(129, 22);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(201, 34);
+            this.txtUser.Size = new System.Drawing.Size(201, 29);
             this.txtUser.TabIndex = 1;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(182, 122);
+            this.txtPass.Location = new System.Drawing.Point(129, 61);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(201, 34);
+            this.txtPass.Size = new System.Drawing.Size(201, 29);
             this.txtPass.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 36);
+            this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 28);
+            this.label1.Size = new System.Drawing.Size(111, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Kullanıcı Adı:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 122);
+            this.label2.Location = new System.Drawing.Point(74, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 28);
+            this.label2.Size = new System.Drawing.Size(49, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Şifre:";
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 237);
+            this.ClientSize = new System.Drawing.Size(345, 149);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPass);

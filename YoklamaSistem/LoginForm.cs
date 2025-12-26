@@ -17,7 +17,9 @@ namespace YoklamaSistem
         {
             InitializeComponent();
         }
+
         string connectionString = @"Server=.\SQLExpress;Database=YoklamaSistemiDB;Integrated Security=True;";
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
@@ -25,7 +27,7 @@ namespace YoklamaSistem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string query = "SELECT root FROM logins WHERE loginName=@user AND loginPass=@pass";
+            string query = "SELECT root, name, surname, studentID, teacherID FROM logins WHERE loginName=@user AND loginPass=@pass";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -33,36 +35,26 @@ namespace YoklamaSistem
                 cmd.Parameters.AddWithValue("@user", txtUser.Text);
                 cmd.Parameters.AddWithValue("@pass", txtPass.Text);
 
-                try
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
                 {
-                    conn.Open();
-                    object result = cmd.ExecuteScalar(); // Tek bir değer (root) döneceği için Scalar kullandık
+                    UserSession.UserName = txtUser.Text;
+                    UserSession.RootStatus = (Convert.ToInt32(dr["root"]) == 1) ? "enable" : "disable";
+                    UserSession.Name = dr["name"].ToString();
+                    UserSession.Surname = dr["surname"].ToString();
 
-                    if (result != null)
-                    {
-                        // Root kontrolü
-                        int rootValue = Convert.ToInt32(result);
+                    // Öğrenci ise StudentID, Öğretmen ise TeacherID doldurulur
+                    UserSession.StudentID = dr["studentID"] != DBNull.Value ? Convert.ToInt64(dr["studentID"]) : 0;
+                    UserSession.TeacherID = dr["teacherID"] != DBNull.Value ? Convert.ToInt64(dr["teacherID"]) : 0;
 
-                        // Talebine göre: 1 ise enable, 0 ise disable
-                        UserSession.UserName = txtUser.Text;
-                        UserSession.RootStatus = (rootValue == 1) ? "enable" : "disable";
+                    MessageBox.Show($"Hoş Geldiniz: {UserSession.Name} {UserSession.Surname}");
 
-                        MessageBox.Show($"Giriş Başarılı! Yetki: {UserSession.RootStatus}", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Ana Menüye Geçiş
-                        Menu main = new Menu();
-                        this.Hide();
-                        main.ShowDialog();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Veritabanı hatası: " + ex.Message);
+                    Menu main = new Menu();
+                    this.Hide();
+                    main.ShowDialog();
+                    this.Close();
                 }
             }
         }

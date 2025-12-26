@@ -9,6 +9,11 @@ namespace YoklamaSistem
     public static class UserSession
     {
         public static string UserName { get; set; }
-        public static string RootStatus { get; set; } // "enable" veya "disable" tutacak
+        public static string RootStatus { get; set; }
+        
+        public static string Name { get; set; }
+        public static string Surname { get; set; }
+        public static long StudentID { get; set; }
+        public static long TeacherID { get; set; }
     }
 }
