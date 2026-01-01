@@ -68,12 +68,13 @@
             // 
             // dgvGelenler
             // 
-            this.dgvGelenler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvGelenler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGelenler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGelenler.Location = new System.Drawing.Point(1, 184);
+            this.dgvGelenler.Location = new System.Drawing.Point(1, 160);
             this.dgvGelenler.Name = "dgvGelenler";
-            this.dgvGelenler.Size = new System.Drawing.Size(647, 144);
+            this.dgvGelenler.Size = new System.Drawing.Size(647, 168);
             this.dgvGelenler.TabIndex = 3;
             // 
             // lblHocaBilgi
@@ -121,7 +122,7 @@
             this.Controls.Add(this.dtpYoklamaTarihi);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "HocaPaneliForm";
             this.Text = "Yoklama Listesi";
             this.Load += new System.EventHandler(this.HocaPaneliForm_Load);
